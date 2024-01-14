@@ -1,19 +1,22 @@
 // Random Computer choice
 
+let choices = ["Rock", "Paper", "Scissors"];
 
 function getComputerChoice() {
-    return (Math.floor(Math.random() *3));
+    let result = choices[(Math.floor(Math.random() *3))];
+    console.log(result);
+    return result;
 }
 
-if (getComputerChoice() === 0) {
-    alert("Rock");
-} else if (getComputerChoice() === 1) {
-    alert("Paper");
-} else {
-    alert("Scissors");
-}
 
-getComputerChoice();
+//if (getComputerChoice() === 0) {
+//    return "Rock";
+//} else if (getComputerChoice() === 1) {
+//    return "Paper";
+//} else {
+//    return "Scissors";
+//}
+
 
 //let input = Math.floor(Math.random() * 3);
 //if (input === 0) {
