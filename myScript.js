@@ -9,15 +9,6 @@ function getComputerChoice() {
 }
 
 
-//if (getComputerChoice() === 0) {
-//    return "Rock";
-//} else if (getComputerChoice() === 1) {
-//    return "Paper";
-//} else {
-//    return "Scissors";
-//}
-
-
 //let input = Math.floor(Math.random() * 3);
 //if (input === 0) {
 //    console.log("Rock");
@@ -31,7 +22,16 @@ function getComputerChoice() {
 
 // Player section
 
-//let choice = prompt("Please choose Rock, Paper or Scissors:");
+let playerSelection = prompt("Please choose Rock, Paper or Scissors:");
+let computerSelection = getComputerChoice();
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection != null) {
+     alert(computerSelection);
+    }
+}
+
+
 
 //const computerSelection = getComputerChoice();
 
