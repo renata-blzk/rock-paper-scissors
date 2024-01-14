@@ -25,21 +25,24 @@ function getComputerChoice() {
 //let playerSelection = prompt("Please choose Rock, Paper or Scissors:");
 //let computerSelection = getComputerChoice();
 
-const playerSelection = prompt("Please choose Rock, Paper or Scissors:");
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+//const playerSelection = prompt("Please choose Rock, Paper or Scissors:");
+//const computerSelection = getComputerChoice();
+//console.log(playRound(playerSelection, computerSelection));
 
 
 function playRound(playerSelection, computerSelection) {
-     if (playerSelection != null) {
-     alert(computerSelection);
-     return(playerSelection); }
-}
+    playerSelection = prompt("Please choose Rock, Paper or Scissors:");
+    computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+     //if (playerSelection != null) {
+     //alert(computerSelection);
+     //return(playerSelection); }
+} 
 
-playRound();
+//playRound();
 
 
-//if (playerSelection == "rock" && computerSelection == "rcok") {
+//if (playerSelection == "rock" && computerSelection == "rock") {
 //    console.log("it's a draw!");
 //}
 
