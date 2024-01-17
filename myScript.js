@@ -18,26 +18,26 @@ function getComputerChoice() {
 //    console.log("Scissors");
 //}
 
-
-
-// Player section
-
-//let playerSelection = prompt("Please choose Rock, Paper or Scissors:");
-//let computerSelection = getComputerChoice();
+// Play round
 
 //const playerSelection = prompt("Please choose Rock, Paper or Scissors:");
+//console.log(playerSelection);
 //const computerSelection = getComputerChoice();
 //console.log(playRound(playerSelection, computerSelection));
 
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = prompt("Please choose Rock, Paper or Scissors:");
+    console.log(playerSelection);
     computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+    alert(computerSelection);
+    //console.log(playRound(playerSelection, computerSelection));
      //if (playerSelection != null) {
      //alert(computerSelection);
      //return(playerSelection); }
 } 
+
+playRound();
 
 //playRound();
 
