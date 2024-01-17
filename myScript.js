@@ -32,14 +32,15 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     alert(computerSelection);
     //console.log(playRound(playerSelection, computerSelection));
+    return (playerSelection, computerSelection);
+    
+    //console.log(playRound(playerSelection, computerSelection));
      //if (playerSelection != null) {
      //alert(computerSelection);
      //return(playerSelection); }
 } 
 
 playRound();
-
-//playRound();
 
 
 //if (playerSelection == "rock" && computerSelection == "rock") {
