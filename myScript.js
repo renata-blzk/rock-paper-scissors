@@ -1,60 +1,59 @@
 // Random Computer choice
 
-let choices = ["Rock", "Paper", "Scissors"];
+let choices = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
     let result = choices[(Math.floor(Math.random() *3))];
-    console.log(result);
+    //console.log(result);
     return result;
 }
 
 
-//let input = Math.floor(Math.random() * 3);
-//if (input === 0) {
-//    console.log("Rock");
-//} else if (input === 1) {
-//    console.log("Papper");
-//} else {
-//    console.log("Scissors");
-//}
-
-// Play round
-
-//const playerSelection = prompt("Please choose Rock, Paper or Scissors:");
-//console.log(playerSelection);
-//const computerSelection = getComputerChoice();
-//console.log(playRound(playerSelection, computerSelection));
-
-
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt("Please choose Rock, Paper or Scissors:");
-    console.log(playerSelection);
-    computerSelection = getComputerChoice();
-    alert(computerSelection);
+    //playerSelection = prompt("Please choose Rock, Paper or Scissors:");
+    //console.log(playerSelection);
+    //computerSelection = getComputerChoice();
+    //alert(computerSelection);
     //console.log(playRound(playerSelection, computerSelection));
-    return (playerSelection, computerSelection);
+    //return (playerSelection, computerSelection);
     
+    if (playerSelection === computerSelection) {
+         return ("The result is a tie!");
+        } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
+            return ("You win! Rock beats scissors.");
+        } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
+            return ("You loose! Paper beats rock.");        
+        } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
+            return ("You win! Paper beats rock.");
+        } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
+            return ("You loose! Scissors beats paper.");
+        } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
+            return ("You loose! Rock beats scissors.");
+        } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
+            return ("You win! Scissors beats paper.");
+        }
+    }
+
+
+
     //console.log(playRound(playerSelection, computerSelection));
      //if (playerSelection != null) {
      //alert(computerSelection);
      //return(playerSelection); }
-} 
 
-playRound();
-
+//playRound();
 
 //if (playerSelection == "rock" && computerSelection == "rock") {
 //    console.log("it's a draw!");
 //}
 
-//const playerSelection = "rock";
-//const computerSelection = getComputerChoice();
-//console.log(playRound(playerSelection, computerSelection));
-
-
+const computerSelection = getComputerChoice();
+const playerSelection = prompt("Please choose Rock, Paper or Scissors:");
+console.log(computerSelection);
+console.log(playRound(playerSelection, computerSelection));
 
 //const computerSelection = getComputerChoice();
 
 //if (choice != null) {
 //    alert(input);
-//}
+//
