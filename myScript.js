@@ -25,7 +25,7 @@ const playGame = () =>  {
         return 'You loose!'; 
     }
 
-    let player = prompt('Please select your choice', '');
+    //let player = prompt('Please select your choice', '');
     const playerSelection = player.toUpperCase();
     const computerSelection = getComputerChoice();
     playRoundResult = playRound(playerSelection, computerSelection);
