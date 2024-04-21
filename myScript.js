@@ -15,8 +15,7 @@ const playGame = () =>  {
     function playRound(playerSelection, computerSelection) {
         const win = (computerSelection === 'ROCK' && playerSelection === 'PAPER') ||
         (computerSelection === 'SCISSORS' && playerSelection === 'ROCK') ||
-        (computerSelection === 'PAPER' && playerSelection === 'SCISSORS') ||
-        (computerSelection === 'SCISSORS' && playerSelection === 'PAPER');
+        (computerSelection === 'PAPER' && playerSelection === 'SCISSORS');
         if (computerSelection === playerSelection) return 'Tie!';
         if (win) {
             playerScore++;
