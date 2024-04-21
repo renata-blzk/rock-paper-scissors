@@ -6,3 +6,6 @@ A game of Rock, Paper, Scissors
 3. get computer to choose random between rock, paper and scissors
 4. alert computer choice, console.log returned answers
 5. compare answers and declare a winner
+
+
+    
