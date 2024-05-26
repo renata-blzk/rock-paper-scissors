@@ -127,8 +127,32 @@ function game() {
 
     computerChoice.textContent = computerSelection.toUpperCase();
     result.textContent = playRound (playerSelection, computerSelection).toUpperCase();
-
+    let humanScore =document.querySelector('.human');
+    humanScore.textContent = playerCount;
+    let computerScore = document.querySelector('.computer');
+    computerScore.textContent = computerCount;
 
     
 }
+
+function overlay() {
+    if (playerCount === 5) {
+        let finalResult = document.getElementById('details');
+        finalResult.textContent = 'You Won';
+
+        playAgain();
+        gameInProgress = false;
+    }
+
+    else if (computerCount === 5) {
+        let finalResult = document.getElementById('details');
+        finalResult.textContent = 'You Lost';
+
+        playAgain();
+        gameInProgress = false;
+    }
+
+}
+
+
 
