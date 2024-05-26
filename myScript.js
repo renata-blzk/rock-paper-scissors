@@ -1,4 +1,4 @@
-let playerCount = 0;
+/*let playerCount = 0;
 let computerCount = 0;
 let playerSelection;
 let computerSelection;
@@ -105,4 +105,81 @@ function playAgain() {
         appendBtn.removeChild(btnNew);
         gameInProgress = true;
     });
-}
+}*/
+
+let game = {};
+    game.players = [0, 0];
+    game.calcWhoWins = function (p1, p2) {
+        if (p1 == p2) {
+            return -1;
+        } else if (p1 == 'rock' && p2 == 'scissors') {
+            return 0;
+        } else if (p1 == 'paper' && p2 == 'rock') {
+            return 0;
+        } else if (p1 == 'scissors' &&  p2 == 'paper') {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    game.options = ['rock', 'paper', 'scissors'];
+    game.randomOption = function() {
+        let randomIndex = Math.floor(Math.random() * 3);
+        return this.options[randomIndex]
+    }
+
+    game.play = function (p1) {
+        if (!p1) { return false }
+        if (this.options.indexOf < 0) { return false }
+
+        let p2 = this.randomOption();
+        let winner = this.calcWhoWins(p1, p2);
+        if (this.players[winner]) {
+            this.players[winner]++
+        }
+        this.display(p1, p2, winner)
+    }
+
+    game.display = function(p1, p2, winner) {
+        let p1Score = document.querySelector('#p1Score');
+        let p2Score = document.querySelector('#p2Score');
+        let historyTable = document.querySelector('#history');
+        let historyTbody = document.querySelector('tbody');
+
+        let result = winner == -1
+        ? 'Draw'
+        : `Player ${winner + 1} Wins!`;
+
+        if (p1Score) {
+            p1Score.innerText = this.players[0]
+        }
+        if (p2Score) {
+            p2Score.innerText = this.players[1]
+        }
+        if (history){
+            historyTbody.innerHTML += `<tr>
+                <td>${p1}</td><td>${result}</td><td>${p2}</td>
+            </tr>`;
+        }
+    }
+
+    game.init =function() {
+        let rock = document.querySelector('#rock');
+            rock.addEventListener('click', () => {
+                game.play('rock')
+            });
+        let paper = document.querySelector('#paper');
+            paper.addEventListener('click', () => {
+                game.play('paper')
+            });
+        let scissors = document.querySelector('#scissors');
+            scissors.addEventListener('click', () => {
+                game.play('scissors')
+            })
+    }
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+        game.init()
+    });
+
