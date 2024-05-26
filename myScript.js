@@ -86,7 +86,9 @@ rock.addEventListener("click", () => {
     if (gameInProgress) {
         playerSelection = "ROCK";
         game();
-        console.log(playerSelection);
+        //highlight the option clicked by user
+        rock.classList.add('highlight');
+        overlay();
     }
 });
 
@@ -94,7 +96,8 @@ paper.addEventListener("click", () => {
     if (gameInProgress) {
         playerSelection = "PAPER";
         game();
-        console.log(playerSelection);
+        paper.classList.add('highlight');
+        overlay();
     }
 });
 
@@ -102,8 +105,15 @@ scissors.addEventListener("click", () => {
     if (gameInProgress) {
         playerSelection = "SCISSORS";
         game();
-        console.log(playerSelection);
+        rock.classList.add('highlight');
+        overlay();
     }
+});
+
+document.addEventListener('mouseup', (e) => {
+    rock.classList.remove('highlight');
+    paper.classList.remove('highlight');
+    scissors.classList.remove('highlight');
 });
 
 function game() {
