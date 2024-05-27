@@ -1,3 +1,116 @@
+const playerText = document.querySelector("#playerText");
+const computerText = document.querySelector("#computerText");
+const resultText = document.querySelector("#resultText");
+const playerScoreText = document.querySelector("#playerScore");
+const computerScoreText = document.querySelector("#computerScore");
+const choiceBtns = document.querySelectorAll(".choiceBtn");
+let player;
+let computer;
+let result;
+let playerScore = 0;
+let computerScore = 0;
+let playBtn;
+
+// add functions to buttons
+choiceBtns.forEach(button => button.addEventListener("click", () => {
+
+    player = button.textContent;
+    computerTurn();
+    playerText.textContent = `Player: ${player}`;
+    computerText.textContent = `Computer: ${computer}`;
+    resultText.textContent = checkWinner();
+    updateScores();
+    //playAgain();
+    checkGameEnd();
+
+}));
+
+// create random computer choice
+function computerTurn() {
+
+    const randNum = Math.floor(Math.random() * 3) + 1;
+
+    switch(randNum){
+        case 1:
+            computer = "ROCK";
+            break;
+        case 2:
+            computer = "PAPER";
+            break;
+        case 3:
+            computer = "SCISSORS";
+            break;
+    }
+}
+
+function checkWinner() {
+
+    if (player == computer) {
+        return "Draw!";
+    } else if (computer == "ROCK") {
+        if (player == "PAPER") {
+            playerScore++;
+            return "You Win!";
+        } else {
+            computerScore++;
+            return "You Loose!";
+        }
+    } else if (computer == "PAPER") {
+        if (player == "SCISSORS") {
+            playerScore++;
+            return "You Win!";
+        } else {
+            computerScore++;
+            return "You Loose!";
+        }
+    } else if (computer == "SCISSORS") {
+        if (player == "ROCK") {
+            playerScore++;
+            return "You Win!";
+        } else {
+            computerScore++;
+            return "You Loose!";
+        }
+    }
+}
+
+function updateScores() {
+    playerScoreText.textContent = `Player Score: ${playerScore}`;
+    computerScoreText.textContent = `Computer Score: ${computerScore}`;
+}
+
+function checkGameEnd() {
+    if (playerScore === 5 || computerScore === 5) {
+        choiceBtns.forEach (button => button.disabled = true);
+
+        playBtn = document.createElement("button");
+        playBtn.textContent = `Play Again`;
+        document.body.appendChild(playBtn);
+
+        playBtn.addEventListener ("click", () => {
+            playerScore = 0;
+            computerScore = 0;
+            playerText.textContent = `Player:`;
+            computerText.textContent = `Computer:`;
+            resultText.textContent = "Result: ";
+            updateScores();
+            choiceBtns.forEach (button => button.disabled = false);
+            playBtn.remove();
+            playBtn.null;
+        });
+    }
+}
+
+
+
+
+
+
+
+////////////////////////////////////
+// ///// Previous attempts ///// //
+///////////////////////////////////
+
 /*let playerCount = 0;
 let computerCount = 0;
 let playerSelection;
@@ -182,108 +295,6 @@ function playAgain() {
     document.addEventListener("DOMContentLoaded", (event) => {
         game.init()
     });*/
-
-const playerText = document.querySelector("#playerText");
-const computerText = document.querySelector("#computerText");
-const resultText = document.querySelector("#resultText");
-const playerScoreText = document.querySelector("#playerScore");
-const computerScoreText = document.querySelector("#computerScore");
-const choiceBtns = document.querySelectorAll(".choiceBtn");
-let player;
-let computer;
-let result;
-let playerScore = 0;
-let computerScore = 0;
-let playBtn;
-
-choiceBtns.forEach(button => button.addEventListener("click", () => {
-
-    player = button.textContent;
-    computerTurn();
-    playerText.textContent = `Player: ${player}`;
-    computerText.textContent = `Computer: ${computer}`;
-    resultText.textContent = checkWinner();
-    updateScores();
-    //playAgain();
-    checkGameEnd();
-
-}));
-
-function computerTurn() {
-
-    const randNum = Math.floor(Math.random() * 3) + 1;
-
-    switch(randNum){
-        case 1:
-            computer = "ROCK";
-            break;
-        case 2:
-            computer = "PAPER";
-            break;
-        case 3:
-            computer = "SCISSORS";
-            break;
-    }
-}
-
-
-function checkWinner() {
-
-    if (player == computer) {
-        return "Draw!";
-    } else if (computer == "ROCK") {
-        if (player == "PAPER") {
-            playerScore++;
-            return "You Win!";
-        } else {
-            computerScore++;
-            return "You Loose!";
-        }
-    } else if (computer == "PAPER") {
-        if (player == "SCISSORS") {
-            playerScore++;
-            return "You Win!";
-        } else {
-            computerScore++;
-            return "You Loose!";
-        }
-    } else if (computer == "SCISSORS") {
-        if (player == "ROCK") {
-            playerScore++;
-            return "You Win!";
-        } else {
-            computerScore++;
-            return "You Loose!";
-        }
-    }
-}
-
-function updateScores() {
-    playerScoreText.textContent = `Player Score: ${playerScore}`;
-    computerScoreText.textContent = `Computer Score: ${computerScore}`;
-}
-
-function checkGameEnd() {
-    if (playerScore === 5 || computerScore === 5) {
-        choiceBtns.forEach (button => button.disabled = true);
-
-        playBtn = document.createElement("button");
-        playBtn.textContent = `Play Again`;
-        document.body.appendChild(playBtn);
-
-        playBtn.addEventListener ("click", () => {
-            playerScore = 0;
-            computerScore = 0;
-            playerText.textContent = `Player:`;
-            computerText.textContent = `Computer:`;
-            resultText.textContent = "Result: ";
-            updateScores();
-            choiceBtns.forEach (button => button.disabled = false);
-            playBtn.remove();
-            playBtn.null;
-        });
-    }
-}
 
 /*function playAgain() {
     if (playerScore === 5 || computerScore === 5) {
