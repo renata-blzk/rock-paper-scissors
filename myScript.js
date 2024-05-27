@@ -107,7 +107,7 @@ function playAgain() {
     });
 }*/
 
-let game = {};
+/*let game = {};
     game.players = [0, 0];
     game.calcWhoWins = function (p1, p2) {
         if (p1 == p2) {
@@ -181,5 +181,7 @@ let game = {};
 
     document.addEventListener("DOMContentLoaded", (event) => {
         game.init()
-    });
+    });*/
+
+    
 
