@@ -194,6 +194,7 @@ let computer;
 let result;
 let playerScore = 0;
 let computerScore = 0;
+let playBtn;
 
 choiceBtns.forEach(button => button.addEventListener("click", () => {
 
@@ -203,7 +204,8 @@ choiceBtns.forEach(button => button.addEventListener("click", () => {
     computerText.textContent = `Computer: ${computer}`;
     resultText.textContent = checkWinner();
     updateScores();
-    playAgain();
+    //playAgain();
+    checkGameEnd();
 
 }));
 
@@ -261,7 +263,29 @@ function updateScores() {
     computerScoreText.textContent = `Computer Score: ${computerScore}`;
 }
 
-function playAgain() {
+function checkGameEnd() {
+    if (playerScore === 5 || computerScore === 5) {
+        choiceBtns.forEach (button => button.disabled = true);
+
+        playBtn = document.createElement("button");
+        playBtn.textContent = `Play Again`;
+        document.body.appendChild(playBtn);
+
+        playBtn.addEventListener ("click", () => {
+            playerScore = 0;
+            computerScore = 0;
+            playerText.textContent = `Player:`;
+            computerText.textContent = `Computer:`;
+            resultText.textContent = "Result: ";
+            updateScores();
+            choiceBtns.forEach (button => button.disabled = false);
+            playBtn.remove();
+            playBtn.null;
+        });
+    }
+}
+
+/*function playAgain() {
     if (playerScore === 5 || computerScore === 5) {
         const playBtn = document.createElement("button");
         playBtn.textContent = `Play Again`;
@@ -276,4 +300,4 @@ function playAgain() {
     }
     
 
-}
+}*/
