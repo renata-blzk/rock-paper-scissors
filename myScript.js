@@ -186,10 +186,14 @@ function playAgain() {
 const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
+const playerScoreText = document.querySelector("#playerScore");
+const computerScoreText = document.querySelector("#computerScore");
 const choiceBtns = document.querySelectorAll(".choiceBtn");
 let player;
 let computer;
 let result;
+let playerScore = 0;
+let computerScore = 0;
 
 choiceBtns.forEach(button => button.addEventListener("click", () => {
 
@@ -198,6 +202,8 @@ choiceBtns.forEach(button => button.addEventListener("click", () => {
     playerText.textContent = `Player: ${player}`;
     computerText.textContent = `Computer: ${computer}`;
     resultText.textContent = checkWinner();
+    updateScores();
+    playAgain();
 
 }));
 
@@ -223,14 +229,51 @@ function checkWinner() {
 
     if (player == computer) {
         return "Draw!";
-    } 
-    else if (computer == "ROCK") {
-        return (player == "PAPER") ? "You Win!" : "You Loose!";
+    } else if (computer == "ROCK") {
+        if (player == "PAPER") {
+            playerScore++;
+            return "You Win!";
+        } else {
+            computerScore++;
+            return "You Loose!";
+        }
+    } else if (computer == "PAPER") {
+        if (player == "SCISSORS") {
+            playerScore++;
+            return "You Win!";
+        } else {
+            computerScore++;
+            return "You Loose!";
+        }
+    } else if (computer == "SCISSORS") {
+        if (player == "ROCK") {
+            playerScore++;
+            return "You Win!";
+        } else {
+            computerScore++;
+            return "You Loose!";
+        }
     }
-    else if (computer == "PAPER") {
-        return (player == "SCISSORS") ? "You Win!" : "You Loose!"
+}
+
+function updateScores() {
+    playerScoreText.textContent = `Player Score: ${playerScore}`;
+    computerScoreText.textContent = `Computer Score: ${computerScore}`;
+}
+
+function playAgain() {
+    if (playerScore === 5 || computerScore === 5) {
+        const playBtn = document.createElement("button");
+        playBtn.textContent = `Play Again`;
+        document.body.appendChild(playBtn);
+    
+        playBtn.addEventListener ("click", () => {
+            playerScore = 0;
+            computerScore = 0;
+            document.querySelector("#playerScore").innerHTML = playerScore;
+            document.querySelector("#computerScore").innerHTML = computerScore;
+        }); 
     }
-    else if (computer == "SCISSORS") {
-        return (player == "ROCK") ? "You Win!" : "You Loose!"
-    }
+    
+
 }
